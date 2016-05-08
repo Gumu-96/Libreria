@@ -1,5 +1,5 @@
+datos|6
 color|3
 productos|12
 compras|15
 ventas|13
-datos|7

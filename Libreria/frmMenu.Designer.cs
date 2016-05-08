@@ -46,7 +46,6 @@
             this.btnReportes.Size = new System.Drawing.Size(210, 120);
             this.btnReportes.TabIndex = 3;
             this.btnReportes.UseSelectable = true;
-            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
             // btnCerrarSesion
             // 
