@@ -1,0 +1,13 @@
+﻿v000001|...Anonimo...|Augusto|[ProductoEjemplo_70|70|4/5/2016 12:00:00 a. m.
+v000002|...Anonimo...|Augusto|[Cuaderno_50|50|4/5/2016 12:00:00 a. m.
+v000003|...Anonimo...|Augusto|[Cuaderno_250|250|4/5/2016 12:00:00 a. m.
+v000004|...Anonimo...|Augusto|[Resaltador_8[Cuaderno #3_4.5[Sacapunta plastica_10.5|23|4/5/2016 12:00:00 a. m.
+v000005|...Anonimo...|Augusto|[Lapicero_3.75[Resaltador_2|5.75|5/5/2016 12:00:00 AM
+v000006|Müller|GM0004|[Folder tamaño carta_2.5[Lapicero_1.25[Marcador_3.9|7.65|6 May. 2016
+v000007|Qwerty|GM0004|[Folder tamaño carta_2.5[Cuaderno #3_4.5|7|6 May. 2016
+v000008|...Anonimo...|GM0004|[Resaltador_5|5|6 May. 2016
+v000009|CLIENTE|GM0004|[Lapicero_1.25|1.25|6 May. 2016
+v000010|...Anonimo...|GM0004|[Lapicero_1.25[Marcador_3.9|5.15|6 May. 2016
+v000011|...Anonimo...|GM0004|[Resaltador_5|5|6 May. 2016
+v000012|...Anonimo...|GM0004|[Resaltador_5|5|6 May. 2016
+v000013|Cliente|GM0004|[Cuaderno #3_3.3|3.3|7 May. 2016

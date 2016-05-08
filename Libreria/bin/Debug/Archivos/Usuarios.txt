@@ -1,0 +1,4 @@
+GM0004|0000|Admin
+FM0001|1234|Admin
+ES0002|0000|Empleado
+AM0003|1111|Empleado
