@@ -75,5 +75,12 @@ namespace Libreria
             productos.Show();
             Hide();
         }
+
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+            frmReportes reportes = new frmReportes(usuarioActivo);
+            reportes.Show();
+            Hide();
+        }
     }
 }

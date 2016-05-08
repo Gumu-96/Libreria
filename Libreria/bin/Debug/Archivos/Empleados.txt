@@ -1,4 +1,4 @@
-ES0002|Erick|Sandoval|asdfghj|qweqwe|28 Dic. 1998
-FM0001|Fernando|Magaña|zxczxc|wertyui|29 Abr. 2000
-AM0003|Augusto|Meza|qwertyu|ytrewq|27 Abr. 1996
-GM0004|Gustavo|Müller|mail@mail.com|11111111-1|11 Sept. 1996
+﻿FM0001|qwertyui|asdfgh|zxcvb|02154876|2 May. 2016
+ES0002|qwertyui|asdfgh|zxcvb|02154876|2 May. 2016
+AM0003|qwertyui|asdfgh|zxcvb|02154876|2 May. 2016
+GM0004|Gustavo|Müller|mail|12345678-9|11 Sept. 1996
