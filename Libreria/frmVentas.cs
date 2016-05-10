@@ -12,12 +12,14 @@ using MaterialSkin.Controls;
 using MetroFramework;
 using MetroFramework.Forms;
 using System.IO;
+using System.Diagnostics;
 
 namespace Libreria
 {
     public partial class frmVentas : MaterialForm
     {
         Usuarios usuarioActivo;
+        string[] empleado;
         List<string[]> ListaEliminar = new List<string[]>();
         List<string[]> FilasProd = new List<string[]>();
         List<string[]> ProdFactura = new List<string[]>();
@@ -25,10 +27,11 @@ namespace Libreria
         Datos ventas = new Datos("ventas.txt");
         Datos config = new Datos("Config.txt");
 
-        public frmVentas(Usuarios user)
+        public frmVentas(Usuarios user, string[] emp)
         {
             FormColor color = new FormColor(this);
             usuarioActivo = user;
+            empleado = emp;
 
             InitializeComponent();
         }
@@ -200,6 +203,8 @@ namespace Libreria
         {
             if (dgvVentas.RowCount != 0)
             {
+                string[] prodFact = ProdFactura.Find(p => p[0] == dgvVentas.CurrentRow.Cells[4].Value.ToString());
+                ProdFactura.Remove(prodFact);
                 ListaEliminar.RemoveAt(dgvVentas.SelectedRows[0].Index);
                 dgvVentas.Rows.RemoveAt(dgvVentas.SelectedRows[0].Index);
                 ObtenerTotal();
@@ -211,40 +216,97 @@ namespace Libreria
             if (dgvVentas.RowCount != 0)
             {
                 string strVenta = "";
-                DialogResult rs = MetroMessageBox.Show(this, "¿Desea continuar con la venta? Si=Yes / No=No", "Vender", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (rs == DialogResult.Yes)
+                if (txtPago.Text == "") txtPago.Text = "0";
+                
+                if (double.Parse(txtPago.Text) < double.Parse(lblTotal.Text))
                 {
-                    if (File.Exists(ventas.RutaArchivo))
+                    MetroMessageBox.Show(this, "El monto de pago es menor al total, por favor ingrese otra cantidad", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                }
+                else
+                {
+                    double cambio = double.Parse(txtPago.Text) - double.Parse(lblTotal.Text);
+                    lblCambio.Text = "$" + cambio.ToString();
+
+                    if (!File.Exists(ventas.RutaArchivo))
                     {
-                        string productosVendidos = "";
-                        foreach (DataGridViewRow r in dgvVentas.Rows)
-                        {
-                            productosVendidos = productosVendidos + "[" + r.Cells[0].Value.ToString() + "_" + r.Cells[3].Value.ToString();
-                        }
-
-                        if (txtCliente.Text != "")
-                        {
-                            strVenta = GenerarIdVenta() + "|" + txtCliente.Text + "|" + usuarioActivo.Usuario + "|" + productosVendidos + "|" + lblTotal.Text + "|" + DateTime.Now.ToShortDateString();
-                        }
-                        else
-                        {
-                            strVenta = GenerarIdVenta() + "|" + "...Anonimo..." + "|" + usuarioActivo.Usuario + "|" + productosVendidos + "|" + lblTotal.Text + "|" + DateTime.Now.ToShortDateString();
-                        }
-
-                        //Modificando cantidades en stock
-                        foreach (string[] s in ListaEliminar)
-                        {
-                            string line = CambiarFila(s[0], s[1]);
-                            productos.Modificar(s[0], line);
-                        }
-
-                        ventas.Agregar(strVenta);
-                        dgvProd.Rows.Clear();
-                        fillDataGrid();
-                        dgvVentas.Rows.Clear();
-                        lblTotal.Text = "0";
-                        ProdFactura.Clear();
+                        FileStream fs = File.Create(ventas.RutaArchivo);
+                        fs.Close();
                     }
+
+                    string productosVendidos = "";
+                    foreach (DataGridViewRow r in dgvVentas.Rows)
+                    {
+                        productosVendidos += "[" + r.Cells[0].Value.ToString() + "_" + r.Cells[3].Value.ToString();
+                    }
+
+                    string idVenta = GenerarIdVenta();
+
+                    if (txtCliente.Text != "")
+                    {
+                        strVenta = idVenta + "|" + txtCliente.Text + "|" + productosVendidos + "|" + lblTotal.Text + "|" + usuarioActivo.Usuario + "|" + DateTime.Now.ToShortDateString();
+                    }
+                    else
+                    {
+                        strVenta = idVenta + "|" + "...Anonimo..." + "|" + productosVendidos + "|" + lblTotal.Text + "|" + usuarioActivo.Usuario + "|" + DateTime.Now.ToShortDateString();
+                    }
+
+                    //Modificando cantidades en stock
+                    foreach (string[] s in ListaEliminar)
+                    {
+                        string line = CambiarFila(s[0], s[1]);
+                        productos.Modificar(s[0], line);
+                    }
+
+                    ventas.Agregar(strVenta);
+                    dgvProd.Rows.Clear();
+                    fillDataGrid();
+                    dgvVentas.Rows.Clear();
+
+                    StreamWriter write = new StreamWriter(Application.StartupPath + "\\Archivos\\Factura.txt");
+                    string[] columnas = { "N°", "Producto", "Precio", "Cant.", "Subtotal" };
+                    string formato = "{0,3}  {1,-20}  {2,-6}  {3,-5}  {4}";
+                    string separador = "", borde = "";
+                    string encabezados = String.Format(formato, columnas);
+                    foreach (char letra in encabezados)
+                    {
+                        separador += "-";
+                        borde += "*";
+                    }
+
+                    write.WriteLine(borde);
+                    write.WriteLine("\t\t Factura {0}", idVenta);
+                    write.WriteLine("\t\t    Libreria");
+                    write.WriteLine();
+                    write.WriteLine("Empleado: {0} {1}", empleado[1], empleado[2]);
+                    write.WriteLine("Fecha: {0}", DateTime.Now.ToShortDateString());
+                    write.WriteLine("Hora: {0}", DateTime.Now.ToLongTimeString());
+                    write.WriteLine();
+
+                    write.WriteLine(separador);
+                    write.WriteLine(encabezados);
+                    write.WriteLine(separador);
+
+                    int i = 0;
+                    foreach (string[] item in ProdFactura)
+                    {
+                        i++;
+                        write.WriteLine(String.Format(formato, i, item[1], item[2], item[3], item[4]));
+                    }
+
+                    write.WriteLine(separador);
+                    write.WriteLine();
+                    write.WriteLine(String.Format("{0, 45}{1}", "Total: $", lblTotal.Text));
+                    write.WriteLine(String.Format("{0, 45}{1}", "Pago recibido: $", txtPago.Text));
+                    write.WriteLine(String.Format("{0, 45}{1}", "Cambio: $", cambio));
+                    write.WriteLine(borde);
+                    write.Close();
+
+                    Process.Start(Application.StartupPath + "\\Archivos\\Factura.txt");
+
+                    lblTotal.Text = "0";
+                    lblCambio.Text = "0";
+                    txtPago.Clear();
+                    ProdFactura.Clear();
                 }
             }
         }
@@ -252,6 +314,14 @@ namespace Libreria
         private void txtCant_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (char.IsNumber(e.KeyChar) || char.IsControl(e.KeyChar))
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+
+        private void txtPago_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsNumber(e.KeyChar) || e.KeyChar == '.' || char.IsControl(e.KeyChar))
                 e.Handled = false;
             else
                 e.Handled = true;

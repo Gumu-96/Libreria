@@ -179,9 +179,7 @@ namespace Libreria
         private void btnEditar_Click(object sender, EventArgs e)
         {
             if (dgvEmp.RowCount != 0)
-            {
                 botonesAccion(true);
-            }
             add = 0;
         }
 
@@ -197,6 +195,10 @@ namespace Libreria
                         datos.Eliminar(txtIdEmp.Text);
                         usuario.Eliminar(txtIdEmp.Text);
                         FillListView();
+                    }
+                    else
+                    {
+                        MetroMessageBox.Show(this, "No se encontro el archivo 'Empleados.txt'", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }

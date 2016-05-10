@@ -15,11 +15,14 @@ namespace Libreria
     public partial class frmMenu : MaterialForm
     {
         Usuarios usuarioActivo;
+        string[] empleado;
 
         public frmMenu(Usuarios user)
         {
             FormColor color = new FormColor(this);
+            Datos emp = new Datos("Empleados.txt");
             usuarioActivo = user;
+            empleado = emp.ObtenerVector(usuarioActivo.Usuario);
             InitializeComponent();
         }
 
@@ -59,7 +62,7 @@ namespace Libreria
 
         private void btnVentas_Click(object sender, EventArgs e)
         {
-            frmVentas ventas = new frmVentas(usuarioActivo);
+            frmVentas ventas = new frmVentas(usuarioActivo, empleado);
             ventas.Show();
             Hide();
         }
