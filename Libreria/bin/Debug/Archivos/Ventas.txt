@@ -16,3 +16,5 @@ v000015|...Anonimo...|[Folder tamaño carta_1[Borrador_0.5[Resma tamaño carta_5
 v000016|...Anonimo...|[Resma tamaño carta_15|15|GM0004|9 May. 2016
 v000017|...Anonimo...|[Cuaderno #3_6.6|6.6|GM0004|9 May. 2016
 v000018|...Anonimo...|[Borrador_1.25[Lapicero_0.6|1.85|GM0004|9 May. 2016
+v000019|...Anonimo...|[Folder tamaño carta_3.75[Sacapunta plastica_1|4.75|GM0004|10 May. 2016
+v000020|...Anonimo...|[Cuaderno #3_3.3[Marcador_3.75[Sacapunta plastica_1|8.05|AM0003|10 May. 2016

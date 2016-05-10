@@ -8,7 +8,8 @@ namespace Libreria
 {
     public class Usuarios
     {
-        string usuario, contrasena, tipo;
+        string usuario, contrasena;
+        bool tipo;
 
         public string Usuario
         {
@@ -22,7 +23,7 @@ namespace Libreria
             set { contrasena = value; }
         }
 
-        public string Tipo
+        public bool Tipo
         {
             get { return tipo; }
             set { tipo = value; }

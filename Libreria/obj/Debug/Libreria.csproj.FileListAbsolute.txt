@@ -36,3 +36,5 @@ C:\Users\gmull\Documents\GitHub\Libreria\Libreria\bin\Debug\MaterialSkin.dll
 C:\Users\gmull\Documents\GitHub\Libreria\Libreria\bin\Debug\MetroFramework.Design.dll
 C:\Users\gmull\Documents\GitHub\Libreria\Libreria\bin\Debug\MetroFramework.dll
 C:\Users\gmull\Documents\GitHub\Libreria\Libreria\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\gmull\Documents\GitHub\Libreria\Libreria\obj\Debug\Libreria.frmReportesEmpleado.resources
+C:\Users\gmull\Documents\GitHub\Libreria\Libreria\obj\Debug\Libreria.frmMantUsuarios.resources

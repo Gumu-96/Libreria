@@ -1,8 +1,8 @@
 prod0010|Corrector|1.25|0.85|50|Corrector de lapicero marca Facela
-prod0007|Marcador|0.75|1.25|100|Marcador para papel punta  2.0 marca Pilot
-prod0006|Sacapunta plastica|0.20|0.50|175|Sacapunta plastica con deposito
-prod0009|Folder tamaño carta|0.25|0.12|470|Folder de cartulina, diferentes colores
 prod0011|Resma tamaño carta|5.00|3.25|10|Resma tamaño carta, contiene 500 hojas  blancas
-prod0004|Cuaderno #3|0.66|0.90|130|Cuaderno #3, lineas oscuras y espiral reforzado
 prod0012|Borrador|0.25|0.75|90|Super borrador de goma
 prod0005|Lapicero|0.12|0.25|195|Lapicero marca bic, distintos colores
+prod0009|Folder tamaño carta|0.25|0.12|455|Folder de cartulina, diferentes colores
+prod0004|Cuaderno #3|0.66|0.90|125|Cuaderno #3, lineas oscuras y espiral reforzado
+prod0007|Marcador|0.75|1.25|95|Marcador para papel punta  2.0 marca Pilot
+prod0006|Sacapunta plastica|0.20|0.50|165|Sacapunta plastica con deposito

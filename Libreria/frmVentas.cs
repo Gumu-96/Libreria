@@ -262,7 +262,11 @@ namespace Libreria
                     fillDataGrid();
                     dgvVentas.Rows.Clear();
 
-                    StreamWriter write = new StreamWriter(Application.StartupPath + "\\Archivos\\Factura.txt");
+                    //Creando factura
+                    string rutaFactura = Application.StartupPath + "\\Archivos\\Facturas\\" + idVenta + ".txt";
+                    FileStream fact = File.Create(rutaFactura);
+                    fact.Close();
+                    StreamWriter write = new StreamWriter(rutaFactura);
                     string[] columnas = { "N°", "Producto", "Precio", "Cant.", "Subtotal" };
                     string formato = "{0,3}  {1,-20}  {2,-6}  {3,-5}  {4}";
                     string separador = "", borde = "";
@@ -301,7 +305,7 @@ namespace Libreria
                     write.WriteLine(borde);
                     write.Close();
 
-                    Process.Start(Application.StartupPath + "\\Archivos\\Factura.txt");
+                    Process.Start(rutaFactura);
 
                     lblTotal.Text = "0";
                     lblCambio.Text = "0";

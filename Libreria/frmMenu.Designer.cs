@@ -28,25 +28,64 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnReportes = new MetroFramework.Controls.MetroButton();
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
+            this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
+            this.lblUsuario = new MaterialSkin.Controls.MaterialLabel();
+            this.lblFechaHora = new MaterialSkin.Controls.MaterialLabel();
+            this.tmrFechaHora = new System.Windows.Forms.Timer(this.components);
             this.btnCerrarSesion = new MetroFramework.Controls.MetroButton();
             this.btnConfig = new MetroFramework.Controls.MetroButton();
+            this.btnReportes = new MetroFramework.Controls.MetroButton();
             this.btnVentas = new MetroFramework.Controls.MetroButton();
             this.btnProductos = new MetroFramework.Controls.MetroButton();
             this.btnMantEmp = new MetroFramework.Controls.MetroButton();
-            this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
-            this.lblUsuario = new MaterialSkin.Controls.MaterialLabel();
             this.SuspendLayout();
             // 
-            // btnReportes
+            // materialDivider1
             // 
-            this.btnReportes.BackgroundImage = global::Libreria.Properties.Resources.Reportes;
-            this.btnReportes.Location = new System.Drawing.Point(115, 360);
-            this.btnReportes.Name = "btnReportes";
-            this.btnReportes.Size = new System.Drawing.Size(210, 120);
-            this.btnReportes.TabIndex = 3;
-            this.btnReportes.UseSelectable = true;
-            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
+            this.materialDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialDivider1.Depth = 0;
+            this.materialDivider1.Location = new System.Drawing.Point(0, 575);
+            this.materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialDivider1.Name = "materialDivider1";
+            this.materialDivider1.Size = new System.Drawing.Size(1000, 25);
+            this.materialDivider1.TabIndex = 21;
+            this.materialDivider1.Text = "materialDivider1";
+            // 
+            // lblUsuario
+            // 
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblUsuario.Depth = 0;
+            this.lblUsuario.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lblUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblUsuario.Location = new System.Drawing.Point(3, 578);
+            this.lblUsuario.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(61, 19);
+            this.lblUsuario.TabIndex = 22;
+            this.lblUsuario.Text = "Usuario";
+            // 
+            // lblFechaHora
+            // 
+            this.lblFechaHora.AutoSize = true;
+            this.lblFechaHora.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblFechaHora.Depth = 0;
+            this.lblFechaHora.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lblFechaHora.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblFechaHora.Location = new System.Drawing.Point(680, 578);
+            this.lblFechaHora.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblFechaHora.Name = "lblFechaHora";
+            this.lblFechaHora.Size = new System.Drawing.Size(94, 19);
+            this.lblFechaHora.TabIndex = 23;
+            this.lblFechaHora.Text = "Fecha - Hora";
+            // 
+            // tmrFechaHora
+            // 
+            this.tmrFechaHora.Enabled = true;
+            this.tmrFechaHora.Interval = 1000;
+            this.tmrFechaHora.Tick += new System.EventHandler(this.tmrFechaHora_Tick);
             // 
             // btnCerrarSesion
             // 
@@ -60,13 +99,23 @@
             // 
             // btnConfig
             // 
-            this.btnConfig.BackgroundImage = global::Libreria.Properties.Resources.Settings;
+            this.btnConfig.BackgroundImage = global::Libreria.Properties.Resources.Style;
             this.btnConfig.Location = new System.Drawing.Point(395, 360);
             this.btnConfig.Name = "btnConfig";
             this.btnConfig.Size = new System.Drawing.Size(210, 120);
             this.btnConfig.TabIndex = 4;
             this.btnConfig.UseSelectable = true;
             this.btnConfig.Click += new System.EventHandler(this.btnConfig_Click);
+            // 
+            // btnReportes
+            // 
+            this.btnReportes.BackgroundImage = global::Libreria.Properties.Resources.Reportes;
+            this.btnReportes.Location = new System.Drawing.Point(115, 360);
+            this.btnReportes.Name = "btnReportes";
+            this.btnReportes.Size = new System.Drawing.Size(210, 120);
+            this.btnReportes.TabIndex = 3;
+            this.btnReportes.UseSelectable = true;
+            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
             // btnVentas
             // 
@@ -99,36 +148,12 @@
             this.btnMantEmp.UseSelectable = true;
             this.btnMantEmp.Click += new System.EventHandler(this.btnMantEmp_Click);
             // 
-            // materialDivider1
-            // 
-            this.materialDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialDivider1.Depth = 0;
-            this.materialDivider1.Location = new System.Drawing.Point(0, 575);
-            this.materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialDivider1.Name = "materialDivider1";
-            this.materialDivider1.Size = new System.Drawing.Size(1000, 25);
-            this.materialDivider1.TabIndex = 21;
-            this.materialDivider1.Text = "materialDivider1";
-            // 
-            // lblUsuario
-            // 
-            this.lblUsuario.AutoSize = true;
-            this.lblUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblUsuario.Depth = 0;
-            this.lblUsuario.Font = new System.Drawing.Font("Roboto", 11F);
-            this.lblUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblUsuario.Location = new System.Drawing.Point(3, 578);
-            this.lblUsuario.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(61, 19);
-            this.lblUsuario.TabIndex = 22;
-            this.lblUsuario.Text = "Usuario";
-            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 600);
+            this.Controls.Add(this.lblFechaHora);
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.materialDivider1);
             this.Controls.Add(this.btnCerrarSesion);
@@ -137,6 +162,7 @@
             this.Controls.Add(this.btnVentas);
             this.Controls.Add(this.btnProductos);
             this.Controls.Add(this.btnMantEmp);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmMenu";
             this.Sizable = false;
@@ -159,5 +185,7 @@
         private MetroFramework.Controls.MetroButton btnCerrarSesion;
         private MaterialSkin.Controls.MaterialDivider materialDivider1;
         private MaterialSkin.Controls.MaterialLabel lblUsuario;
+        private MaterialSkin.Controls.MaterialLabel lblFechaHora;
+        private System.Windows.Forms.Timer tmrFechaHora;
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.txtUsuario = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.txtContrasena = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.btnIniciar = new MaterialSkin.Controls.MaterialRaisedButton();
@@ -109,6 +110,7 @@
             this.Controls.Add(this.btnIniciar);
             this.Controls.Add(this.txtContrasena);
             this.Controls.Add(this.txtUsuario);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmLogin";
             this.Sizable = false;

@@ -19,6 +19,7 @@ namespace Libreria
     public partial class frmReportes : MaterialForm
     {
         Usuarios usuarioActivo;
+        MetroColorStyle MetroColor;
         Datos empleados = new Datos("Empleados.txt");
         Datos productos = new Datos("productos.txt");
         Datos ventas = new Datos("Ventas.txt");
@@ -28,7 +29,8 @@ namespace Libreria
         public frmReportes(Usuarios user)
         {
             usuarioActivo = user;
-            FormColor colr = new FormColor(this);
+            FormColor color = new FormColor(this);
+            MetroColor = color.MetroColor;
 
             InitializeComponent();
         }
@@ -67,15 +69,19 @@ namespace Libreria
                 panelGenerales.Visible = false;
                 panelFechas.Visible = false;
                 panelEmpleados.Visible = true;
+                rbECompras.Checked = true;
+                cboEmps.SelectedIndex = -1;
             }
         }
 
         private void frmReportes_Load(object sender, EventArgs e)
         {
-            if (usuarioActivo.Tipo == "Admin")
-            {
-                rbReportesGenrales.Checked = true;
-            }
+            lblUsuario.Text = "Usuario: " + usuarioActivo.Usuario;
+            panelEmpleados.Style = MetroColor;
+            panelFechas.Style = MetroColor;
+            panelGenerales.Style = MetroColor;
+            rbReportesGenrales.Checked = true;
+            MostrarEmp();
         }
 
         private void btnGenerales_Click(object sender, EventArgs e)
@@ -132,6 +138,8 @@ namespace Libreria
             else
             {
                 string formato;
+                DateTime desde = DateTime.Parse(dtDesde.Value.ToShortDateString());
+                DateTime hasta = DateTime.Parse(dtHasta.Value.ToShortDateString());
                 if (!File.Exists(reporte.RutaReporte))
                 {
                     FileStream fs = File.Create(reporte.RutaReporte);
@@ -142,15 +150,71 @@ namespace Libreria
                 {
                     string[] columnas = { "Código", "Producto", "Precio", "Cant.", "Total", "Empleado", "Fecha de compra" };
                     formato = "{0,-8}  {1,-9}  {2,-8}  {3,-6}  {4,-8}  {5,-8}  {6}";
-                    reporte.GenerarReporte(dtDesde.Value, dtHasta.Value, columnas, formato, "Compras", compras);
+                    reporte.GenerarReporte(desde, hasta, columnas, formato, "Compras", compras);
                 }
                 else if (rbFVentas.Checked)
                 {
                     string[] columnas = { "Código", "Cliente", "", "Total venta", "Empleado", "Fecha de Venta" };
                     formato = "{0,-8}  {1,-20}  {3,-12}  {4,-8}  {5}";
-                    reporte.GenerarReporte(dtDesde.Value, dtHasta.Value, columnas, formato, "Ventas", ventas);
+                    reporte.GenerarReporte(desde, hasta, columnas, formato, "Ventas", ventas);
                 }
             }
+        }
+
+        public void MostrarEmp()
+        {
+            List<string[]> emps = empleados.LeerArchivo();
+
+            foreach (string[] item in emps)
+                cboEmps.Items.Add(item[0] + " - " + item[1] + " " + item[2]);
+        }
+
+        private void btnEmpleados_Click(object sender, EventArgs e)
+        {
+            if (cboEmps.SelectedIndex != -1)
+            {
+                string formato;
+                if (!File.Exists(reporte.RutaReporte))
+                {
+                    FileStream fs = File.Create(reporte.RutaReporte);
+                    fs.Close();
+                }
+
+                if (rbECompras.Checked)
+                {
+                    string[] columnas = { "Código", "Producto", "Precio", "Cant.", "Total", "Empleado", "Fecha de compra" };
+                    formato = "{0,-8}  {1,-9}  {2,-8}  {3,-6}  {4,-8}  {5,-8}  {6}";
+                    reporte.GenerarReporte(cboEmps.Text.Substring(0, 6), columnas, formato, "Compras", compras);
+                }
+                else if (rbEVentas.Checked)
+                {
+                    string[] columnas = { "Código", "Cliente", "", "Total venta", "Empleado", "Fecha de Venta" };
+                    formato = "{0,-8}  {1,-20}  {3,-12}  {4,-8}  {5}";
+                    reporte.GenerarReporte(cboEmps.Text.Substring(0, 6), columnas, formato, "Ventas", ventas);
+                }
+            }
+            else
+            {
+                MetroMessageBox.Show(this, "Por favor seleccione un empleado", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void rbTVentas_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbTVentas.Checked)
+                btnFacturas.Visible = true;
+            else
+                btnFacturas.Visible = false;
+        }
+
+        private void btnFacturas_Click(object sender, EventArgs e)
+        {
+            Process.Start("explorer.exe", Application.StartupPath + "\\Archivos\\Facturas");
         }
     }
 }

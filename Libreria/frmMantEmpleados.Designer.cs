@@ -31,6 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMantEmpleados));
             this.dgvEmp = new MetroFramework.Controls.MetroGrid();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombres = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,13 +51,17 @@
             this.btnGuardar = new MaterialSkin.Controls.MaterialFlatButton();
             this.btnCancelar = new MaterialSkin.Controls.MaterialFlatButton();
             this.lbl1 = new MaterialSkin.Controls.MaterialLabel();
-            this.lbl2 = new MaterialSkin.Controls.MaterialLabel();
-            this.txtUsuario = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.txtContrasena = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.chkAdmin = new MaterialSkin.Controls.MaterialCheckBox();
             this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
             this.btnRegresar = new MetroFramework.Controls.MetroButton();
+            this.lblUsuario = new MaterialSkin.Controls.MaterialLabel();
+            this.panelUsuario = new MetroFramework.Controls.MetroPanel();
+            this.chkAdmin = new MaterialSkin.Controls.MaterialCheckBox();
+            this.txtContrasena = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.txtUsuario = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.lbl2 = new MaterialSkin.Controls.MaterialLabel();
+            this.btnMantUsuario = new MaterialSkin.Controls.MaterialRaisedButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmp)).BeginInit();
+            this.panelUsuario.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvEmp
@@ -70,10 +75,10 @@
             this.dgvEmp.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvEmp.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(170)))), ((int)(((byte)(173)))));
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(201)))), ((int)(((byte)(206)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvEmp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
@@ -89,7 +94,7 @@
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(201)))), ((int)(((byte)(206)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvEmp.DefaultCellStyle = dataGridViewCellStyle2;
@@ -101,17 +106,16 @@
             this.dgvEmp.Name = "dgvEmp";
             this.dgvEmp.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(170)))), ((int)(((byte)(173)))));
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(201)))), ((int)(((byte)(206)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvEmp.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvEmp.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvEmp.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEmp.Size = new System.Drawing.Size(700, 475);
-            this.dgvEmp.Style = MetroFramework.MetroColorStyle.Teal;
             this.dgvEmp.TabIndex = 1;
             this.dgvEmp.SelectionChanged += new System.EventHandler(this.dgvEmp_SelectionChanged);
             // 
@@ -328,71 +332,6 @@
             this.lbl1.TabIndex = 13;
             this.lbl1.Text = "Datos del emplado";
             // 
-            // lbl2
-            // 
-            this.lbl2.AutoSize = true;
-            this.lbl2.Depth = 0;
-            this.lbl2.Font = new System.Drawing.Font("Roboto", 11F);
-            this.lbl2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbl2.Location = new System.Drawing.Point(741, 361);
-            this.lbl2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lbl2.Name = "lbl2";
-            this.lbl2.Size = new System.Drawing.Size(127, 19);
-            this.lbl2.TabIndex = 14;
-            this.lbl2.Text = "Datos del usuario";
-            // 
-            // txtUsuario
-            // 
-            this.txtUsuario.Depth = 0;
-            this.txtUsuario.Enabled = false;
-            this.txtUsuario.Hint = "Usuario";
-            this.txtUsuario.Location = new System.Drawing.Point(769, 394);
-            this.txtUsuario.MaxLength = 30;
-            this.txtUsuario.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.PasswordChar = '\0';
-            this.txtUsuario.SelectedText = "";
-            this.txtUsuario.SelectionLength = 0;
-            this.txtUsuario.SelectionStart = 0;
-            this.txtUsuario.Size = new System.Drawing.Size(190, 23);
-            this.txtUsuario.TabIndex = 8;
-            this.txtUsuario.TabStop = false;
-            this.txtUsuario.Text = "Usuario";
-            this.txtUsuario.UseSystemPasswordChar = false;
-            // 
-            // txtContrasena
-            // 
-            this.txtContrasena.Depth = 0;
-            this.txtContrasena.Hint = "Contraseña";
-            this.txtContrasena.Location = new System.Drawing.Point(769, 434);
-            this.txtContrasena.MaxLength = 30;
-            this.txtContrasena.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtContrasena.Name = "txtContrasena";
-            this.txtContrasena.PasswordChar = '●';
-            this.txtContrasena.SelectedText = "";
-            this.txtContrasena.SelectionLength = 0;
-            this.txtContrasena.SelectionStart = 0;
-            this.txtContrasena.Size = new System.Drawing.Size(190, 23);
-            this.txtContrasena.TabIndex = 9;
-            this.txtContrasena.TabStop = false;
-            this.txtContrasena.UseSystemPasswordChar = false;
-            // 
-            // chkAdmin
-            // 
-            this.chkAdmin.AutoSize = true;
-            this.chkAdmin.Depth = 0;
-            this.chkAdmin.Font = new System.Drawing.Font("Roboto", 10F);
-            this.chkAdmin.Location = new System.Drawing.Point(769, 474);
-            this.chkAdmin.Margin = new System.Windows.Forms.Padding(0);
-            this.chkAdmin.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.chkAdmin.MouseState = MaterialSkin.MouseState.HOVER;
-            this.chkAdmin.Name = "chkAdmin";
-            this.chkAdmin.Ripple = true;
-            this.chkAdmin.Size = new System.Drawing.Size(118, 30);
-            this.chkAdmin.TabIndex = 10;
-            this.chkAdmin.Text = "Administrador";
-            this.chkAdmin.UseVisualStyleBackColor = true;
-            // 
             // materialDivider1
             // 
             this.materialDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -415,17 +354,125 @@
             this.btnRegresar.UseSelectable = true;
             this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
+            // lblUsuario
+            // 
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblUsuario.Depth = 0;
+            this.lblUsuario.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lblUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblUsuario.Location = new System.Drawing.Point(100, 578);
+            this.lblUsuario.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(61, 19);
+            this.lblUsuario.TabIndex = 57;
+            this.lblUsuario.Text = "Usuario";
+            // 
+            // panelUsuario
+            // 
+            this.panelUsuario.Controls.Add(this.chkAdmin);
+            this.panelUsuario.Controls.Add(this.txtContrasena);
+            this.panelUsuario.Controls.Add(this.txtUsuario);
+            this.panelUsuario.Controls.Add(this.lbl2);
+            this.panelUsuario.HorizontalScrollbarBarColor = true;
+            this.panelUsuario.HorizontalScrollbarHighlightOnWheel = false;
+            this.panelUsuario.HorizontalScrollbarSize = 10;
+            this.panelUsuario.Location = new System.Drawing.Point(731, 353);
+            this.panelUsuario.Name = "panelUsuario";
+            this.panelUsuario.Size = new System.Drawing.Size(251, 165);
+            this.panelUsuario.TabIndex = 58;
+            this.panelUsuario.VerticalScrollbarBarColor = true;
+            this.panelUsuario.VerticalScrollbarHighlightOnWheel = false;
+            this.panelUsuario.VerticalScrollbarSize = 10;
+            this.panelUsuario.Visible = false;
+            // 
+            // chkAdmin
+            // 
+            this.chkAdmin.AutoSize = true;
+            this.chkAdmin.Depth = 0;
+            this.chkAdmin.Font = new System.Drawing.Font("Roboto", 10F);
+            this.chkAdmin.Location = new System.Drawing.Point(38, 124);
+            this.chkAdmin.Margin = new System.Windows.Forms.Padding(0);
+            this.chkAdmin.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.chkAdmin.MouseState = MaterialSkin.MouseState.HOVER;
+            this.chkAdmin.Name = "chkAdmin";
+            this.chkAdmin.Ripple = true;
+            this.chkAdmin.Size = new System.Drawing.Size(118, 30);
+            this.chkAdmin.TabIndex = 17;
+            this.chkAdmin.Text = "Administrador";
+            this.chkAdmin.UseVisualStyleBackColor = true;
+            // 
+            // txtContrasena
+            // 
+            this.txtContrasena.Depth = 0;
+            this.txtContrasena.Hint = "Contraseña";
+            this.txtContrasena.Location = new System.Drawing.Point(38, 85);
+            this.txtContrasena.MaxLength = 30;
+            this.txtContrasena.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtContrasena.Name = "txtContrasena";
+            this.txtContrasena.PasswordChar = '●';
+            this.txtContrasena.SelectedText = "";
+            this.txtContrasena.SelectionLength = 0;
+            this.txtContrasena.SelectionStart = 0;
+            this.txtContrasena.Size = new System.Drawing.Size(190, 23);
+            this.txtContrasena.TabIndex = 16;
+            this.txtContrasena.TabStop = false;
+            this.txtContrasena.UseSystemPasswordChar = false;
+            // 
+            // txtUsuario
+            // 
+            this.txtUsuario.Depth = 0;
+            this.txtUsuario.Enabled = false;
+            this.txtUsuario.Hint = "Usuario";
+            this.txtUsuario.Location = new System.Drawing.Point(38, 45);
+            this.txtUsuario.MaxLength = 30;
+            this.txtUsuario.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.PasswordChar = '\0';
+            this.txtUsuario.SelectedText = "";
+            this.txtUsuario.SelectionLength = 0;
+            this.txtUsuario.SelectionStart = 0;
+            this.txtUsuario.Size = new System.Drawing.Size(190, 23);
+            this.txtUsuario.TabIndex = 15;
+            this.txtUsuario.TabStop = false;
+            this.txtUsuario.Text = "Usuario";
+            this.txtUsuario.UseSystemPasswordChar = false;
+            // 
+            // lbl2
+            // 
+            this.lbl2.AutoSize = true;
+            this.lbl2.Depth = 0;
+            this.lbl2.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lbl2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lbl2.Location = new System.Drawing.Point(10, 11);
+            this.lbl2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lbl2.Name = "lbl2";
+            this.lbl2.Size = new System.Drawing.Size(127, 19);
+            this.lbl2.TabIndex = 18;
+            this.lbl2.Text = "Datos del usuario";
+            // 
+            // btnMantUsuario
+            // 
+            this.btnMantUsuario.Depth = 0;
+            this.btnMantUsuario.Location = new System.Drawing.Point(800, 410);
+            this.btnMantUsuario.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnMantUsuario.Name = "btnMantUsuario";
+            this.btnMantUsuario.Primary = true;
+            this.btnMantUsuario.Size = new System.Drawing.Size(130, 36);
+            this.btnMantUsuario.TabIndex = 59;
+            this.btnMantUsuario.Text = "Mant. Usuarios";
+            this.btnMantUsuario.UseVisualStyleBackColor = true;
+            this.btnMantUsuario.Click += new System.EventHandler(this.btnMantUsuario_Click);
+            // 
             // frmMantEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 600);
+            this.Controls.Add(this.btnMantUsuario);
+            this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.materialDivider1);
-            this.Controls.Add(this.chkAdmin);
-            this.Controls.Add(this.txtContrasena);
-            this.Controls.Add(this.txtUsuario);
-            this.Controls.Add(this.lbl2);
             this.Controls.Add(this.lbl1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
@@ -439,6 +486,8 @@
             this.Controls.Add(this.txtNombres);
             this.Controls.Add(this.txtIdEmp);
             this.Controls.Add(this.dgvEmp);
+            this.Controls.Add(this.panelUsuario);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmMantEmpleados";
             this.Sizable = false;
@@ -447,6 +496,8 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMantEmpleados_FormClosed);
             this.Load += new System.EventHandler(this.frmMantEmpleados_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmp)).EndInit();
+            this.panelUsuario.ResumeLayout(false);
+            this.panelUsuario.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -466,10 +517,6 @@
         private MaterialSkin.Controls.MaterialFlatButton btnGuardar;
         private MaterialSkin.Controls.MaterialFlatButton btnCancelar;
         private MaterialSkin.Controls.MaterialLabel lbl1;
-        private MaterialSkin.Controls.MaterialLabel lbl2;
-        private MaterialSkin.Controls.MaterialSingleLineTextField txtUsuario;
-        private MaterialSkin.Controls.MaterialSingleLineTextField txtContrasena;
-        private MaterialSkin.Controls.MaterialCheckBox chkAdmin;
         private MaterialSkin.Controls.MaterialDivider materialDivider1;
         private MetroFramework.Controls.MetroButton btnRegresar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
@@ -478,5 +525,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
         private System.Windows.Forms.DataGridViewTextBoxColumn Dui;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaNacimiento;
+        private MaterialSkin.Controls.MaterialLabel lblUsuario;
+        private MetroFramework.Controls.MetroPanel panelUsuario;
+        private MaterialSkin.Controls.MaterialCheckBox chkAdmin;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtContrasena;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtUsuario;
+        private MaterialSkin.Controls.MaterialLabel lbl2;
+        private MaterialSkin.Controls.MaterialRaisedButton btnMantUsuario;
     }
 }

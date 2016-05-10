@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReportes));
             this.rbReportesGenrales = new MaterialSkin.Controls.MaterialRadioButton();
             this.rbReportesFechas = new MaterialSkin.Controls.MaterialRadioButton();
             this.rbReportesEmpleados = new MaterialSkin.Controls.MaterialRadioButton();
             this.panelGenerales = new MetroFramework.Controls.MetroPanel();
+            this.btnFacturas = new MetroFramework.Controls.MetroTextBox.MetroTextButton();
             this.btnGenerales = new MetroFramework.Controls.MetroTextBox.MetroTextButton();
             this.rbTVentas = new MaterialSkin.Controls.MaterialRadioButton();
             this.rbTCompras = new MaterialSkin.Controls.MaterialRadioButton();
@@ -46,8 +48,15 @@
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.dtDesde = new MetroFramework.Controls.MetroDateTime();
             this.panelEmpleados = new MetroFramework.Controls.MetroPanel();
+            this.btnEmpleados = new MetroFramework.Controls.MetroTextBox.MetroTextButton();
+            this.rbEVentas = new MaterialSkin.Controls.MaterialRadioButton();
+            this.rbECompras = new MaterialSkin.Controls.MaterialRadioButton();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
+            this.cboEmps = new MetroFramework.Controls.MetroComboBox();
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
+            this.lblUsuario = new MaterialSkin.Controls.MaterialLabel();
+            this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
+            this.btnRegresar = new MetroFramework.Controls.MetroButton();
             this.panelGenerales.SuspendLayout();
             this.panelFechas.SuspendLayout();
             this.panelEmpleados.SuspendLayout();
@@ -109,6 +118,7 @@
             // 
             // panelGenerales
             // 
+            this.panelGenerales.Controls.Add(this.btnFacturas);
             this.panelGenerales.Controls.Add(this.btnGenerales);
             this.panelGenerales.Controls.Add(this.rbTVentas);
             this.panelGenerales.Controls.Add(this.rbTCompras);
@@ -125,6 +135,19 @@
             this.panelGenerales.VerticalScrollbarHighlightOnWheel = false;
             this.panelGenerales.VerticalScrollbarSize = 10;
             this.panelGenerales.Visible = false;
+            // 
+            // btnFacturas
+            // 
+            this.btnFacturas.Image = null;
+            this.btnFacturas.Location = new System.Drawing.Point(245, 87);
+            this.btnFacturas.Name = "btnFacturas";
+            this.btnFacturas.Size = new System.Drawing.Size(117, 36);
+            this.btnFacturas.TabIndex = 7;
+            this.btnFacturas.Text = "Ver facturas";
+            this.btnFacturas.UseSelectable = true;
+            this.btnFacturas.UseVisualStyleBackColor = true;
+            this.btnFacturas.Visible = false;
+            this.btnFacturas.Click += new System.EventHandler(this.btnFacturas_Click);
             // 
             // btnGenerales
             // 
@@ -154,6 +177,7 @@
             this.rbTVentas.TabStop = true;
             this.rbTVentas.Text = "Todas las ventas";
             this.rbTVentas.UseVisualStyleBackColor = true;
+            this.rbTVentas.CheckedChanged += new System.EventHandler(this.rbTVentas_CheckedChanged);
             // 
             // rbTCompras
             // 
@@ -229,7 +253,7 @@
             // btnFechas
             // 
             this.btnFechas.Image = null;
-            this.btnFechas.Location = new System.Drawing.Point(245, 94);
+            this.btnFechas.Location = new System.Drawing.Point(245, 95);
             this.btnFechas.Name = "btnFechas";
             this.btnFechas.Size = new System.Drawing.Size(117, 36);
             this.btnFechas.TabIndex = 8;
@@ -318,7 +342,11 @@
             // 
             // panelEmpleados
             // 
+            this.panelEmpleados.Controls.Add(this.btnEmpleados);
+            this.panelEmpleados.Controls.Add(this.rbEVentas);
+            this.panelEmpleados.Controls.Add(this.rbECompras);
             this.panelEmpleados.Controls.Add(this.materialLabel2);
+            this.panelEmpleados.Controls.Add(this.cboEmps);
             this.panelEmpleados.HorizontalScrollbarBarColor = true;
             this.panelEmpleados.HorizontalScrollbarHighlightOnWheel = false;
             this.panelEmpleados.HorizontalScrollbarSize = 10;
@@ -330,18 +358,76 @@
             this.panelEmpleados.VerticalScrollbarHighlightOnWheel = false;
             this.panelEmpleados.VerticalScrollbarSize = 10;
             // 
+            // btnEmpleados
+            // 
+            this.btnEmpleados.Image = null;
+            this.btnEmpleados.Location = new System.Drawing.Point(245, 95);
+            this.btnEmpleados.Name = "btnEmpleados";
+            this.btnEmpleados.Size = new System.Drawing.Size(117, 36);
+            this.btnEmpleados.TabIndex = 11;
+            this.btnEmpleados.Text = "Generar reporte";
+            this.btnEmpleados.UseSelectable = true;
+            this.btnEmpleados.UseVisualStyleBackColor = true;
+            this.btnEmpleados.Click += new System.EventHandler(this.btnEmpleados_Click);
+            // 
+            // rbEVentas
+            // 
+            this.rbEVentas.AutoSize = true;
+            this.rbEVentas.Depth = 0;
+            this.rbEVentas.Font = new System.Drawing.Font("Roboto", 10F);
+            this.rbEVentas.Location = new System.Drawing.Point(45, 115);
+            this.rbEVentas.Margin = new System.Windows.Forms.Padding(0);
+            this.rbEVentas.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.rbEVentas.MouseState = MaterialSkin.MouseState.HOVER;
+            this.rbEVentas.Name = "rbEVentas";
+            this.rbEVentas.Ripple = true;
+            this.rbEVentas.Size = new System.Drawing.Size(72, 30);
+            this.rbEVentas.TabIndex = 10;
+            this.rbEVentas.TabStop = true;
+            this.rbEVentas.Text = "Ventas";
+            this.rbEVentas.UseVisualStyleBackColor = true;
+            // 
+            // rbECompras
+            // 
+            this.rbECompras.AutoSize = true;
+            this.rbECompras.Depth = 0;
+            this.rbECompras.Font = new System.Drawing.Font("Roboto", 10F);
+            this.rbECompras.Location = new System.Drawing.Point(45, 85);
+            this.rbECompras.Margin = new System.Windows.Forms.Padding(0);
+            this.rbECompras.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.rbECompras.MouseState = MaterialSkin.MouseState.HOVER;
+            this.rbECompras.Name = "rbECompras";
+            this.rbECompras.Ripple = true;
+            this.rbECompras.Size = new System.Drawing.Size(85, 30);
+            this.rbECompras.TabIndex = 9;
+            this.rbECompras.TabStop = true;
+            this.rbECompras.Text = "Compras";
+            this.rbECompras.UseVisualStyleBackColor = true;
+            // 
             // materialLabel2
             // 
             this.materialLabel2.AutoSize = true;
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel2.Location = new System.Drawing.Point(56, 48);
+            this.materialLabel2.Location = new System.Drawing.Point(29, 11);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(108, 19);
-            this.materialLabel2.TabIndex = 2;
-            this.materialLabel2.Text = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(158, 19);
+            this.materialLabel2.TabIndex = 3;
+            this.materialLabel2.Text = "Seleccionar empleado";
+            // 
+            // cboEmps
+            // 
+            this.cboEmps.FormattingEnabled = true;
+            this.cboEmps.ItemHeight = 23;
+            this.cboEmps.Location = new System.Drawing.Point(191, 6);
+            this.cboEmps.Name = "cboEmps";
+            this.cboEmps.PromptText = "Empleado";
+            this.cboEmps.Size = new System.Drawing.Size(222, 29);
+            this.cboEmps.TabIndex = 2;
+            this.cboEmps.Tag = "";
+            this.cboEmps.UseSelectable = true;
             // 
             // materialLabel4
             // 
@@ -356,11 +442,50 @@
             this.materialLabel4.TabIndex = 8;
             this.materialLabel4.Text = "Tipo de reporte";
             // 
+            // lblUsuario
+            // 
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblUsuario.Depth = 0;
+            this.lblUsuario.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lblUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblUsuario.Location = new System.Drawing.Point(100, 378);
+            this.lblUsuario.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(61, 19);
+            this.lblUsuario.TabIndex = 56;
+            this.lblUsuario.Text = "Usuario";
+            // 
+            // materialDivider1
+            // 
+            this.materialDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialDivider1.Depth = 0;
+            this.materialDivider1.Location = new System.Drawing.Point(0, 375);
+            this.materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialDivider1.Name = "materialDivider1";
+            this.materialDivider1.Size = new System.Drawing.Size(700, 25);
+            this.materialDivider1.TabIndex = 55;
+            this.materialDivider1.Text = "materialDivider1";
+            // 
+            // btnRegresar
+            // 
+            this.btnRegresar.BackgroundImage = global::Libreria.Properties.Resources.regresarTrans;
+            this.btnRegresar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnRegresar.Location = new System.Drawing.Point(0, 375);
+            this.btnRegresar.Name = "btnRegresar";
+            this.btnRegresar.Size = new System.Drawing.Size(75, 25);
+            this.btnRegresar.TabIndex = 57;
+            this.btnRegresar.UseSelectable = true;
+            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
+            // 
             // frmReportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(719, 400);
+            this.ClientSize = new System.Drawing.Size(700, 400);
+            this.Controls.Add(this.btnRegresar);
+            this.Controls.Add(this.lblUsuario);
+            this.Controls.Add(this.materialDivider1);
             this.Controls.Add(this.materialLabel4);
             this.Controls.Add(this.rbReportesEmpleados);
             this.Controls.Add(this.rbReportesFechas);
@@ -368,6 +493,7 @@
             this.Controls.Add(this.panelFechas);
             this.Controls.Add(this.panelGenerales);
             this.Controls.Add(this.panelEmpleados);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmReportes";
             this.Sizable = false;
@@ -398,7 +524,6 @@
         private MaterialSkin.Controls.MaterialRadioButton rbTEmpleados;
         private MetroFramework.Controls.MetroPanel panelFechas;
         private MetroFramework.Controls.MetroPanel panelEmpleados;
-        private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private MetroFramework.Controls.MetroDateTime dtHasta;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
@@ -407,5 +532,14 @@
         private MaterialSkin.Controls.MaterialRadioButton rbFVentas;
         private MaterialSkin.Controls.MaterialRadioButton rbFCompras;
         private MaterialSkin.Controls.MaterialLabel materialLabel4;
+        private MetroFramework.Controls.MetroTextBox.MetroTextButton btnEmpleados;
+        private MaterialSkin.Controls.MaterialRadioButton rbEVentas;
+        private MaterialSkin.Controls.MaterialRadioButton rbECompras;
+        private MaterialSkin.Controls.MaterialLabel materialLabel2;
+        private MetroFramework.Controls.MetroComboBox cboEmps;
+        private MetroFramework.Controls.MetroButton btnRegresar;
+        private MaterialSkin.Controls.MaterialLabel lblUsuario;
+        private MaterialSkin.Controls.MaterialDivider materialDivider1;
+        private MetroFramework.Controls.MetroTextBox.MetroTextButton btnFacturas;
     }
 }
