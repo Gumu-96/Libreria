@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnReporte = new MetroFramework.Controls.MetroTextBox.MetroTextButton();
             this.rbReportesGenrales = new MaterialSkin.Controls.MaterialRadioButton();
             this.rbReportesFechas = new MaterialSkin.Controls.MaterialRadioButton();
             this.rbReportesEmpleados = new MaterialSkin.Controls.MaterialRadioButton();
@@ -39,33 +38,20 @@
             this.rbTProductos = new MaterialSkin.Controls.MaterialRadioButton();
             this.rbTEmpleados = new MaterialSkin.Controls.MaterialRadioButton();
             this.panelFechas = new MetroFramework.Controls.MetroPanel();
-            this.panelEmpleados = new MetroFramework.Controls.MetroPanel();
-            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
-            this.dtDesde = new MetroFramework.Controls.MetroDateTime();
-            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
-            this.dtHasta = new MetroFramework.Controls.MetroDateTime();
+            this.btnFechas = new MetroFramework.Controls.MetroTextBox.MetroTextButton();
             this.rbFVentas = new MaterialSkin.Controls.MaterialRadioButton();
             this.rbFCompras = new MaterialSkin.Controls.MaterialRadioButton();
-            this.btnFechas = new MetroFramework.Controls.MetroTextBox.MetroTextButton();
+            this.dtHasta = new MetroFramework.Controls.MetroDateTime();
+            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.dtDesde = new MetroFramework.Controls.MetroDateTime();
+            this.panelEmpleados = new MetroFramework.Controls.MetroPanel();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.panelGenerales.SuspendLayout();
             this.panelFechas.SuspendLayout();
             this.panelEmpleados.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnReporte
-            // 
-            this.btnReporte.Image = null;
-            this.btnReporte.Location = new System.Drawing.Point(49, 285);
-            this.btnReporte.Name = "btnReporte";
-            this.btnReporte.Size = new System.Drawing.Size(145, 36);
-            this.btnReporte.Style = MetroFramework.MetroColorStyle.Green;
-            this.btnReporte.TabIndex = 0;
-            this.btnReporte.Text = "Generar reporte";
-            this.btnReporte.UseSelectable = true;
-            this.btnReporte.UseVisualStyleBackColor = true;
-            this.btnReporte.Visible = false;
             // 
             // rbReportesGenrales
             // 
@@ -131,7 +117,7 @@
             this.panelGenerales.HorizontalScrollbarBarColor = true;
             this.panelGenerales.HorizontalScrollbarHighlightOnWheel = false;
             this.panelGenerales.HorizontalScrollbarSize = 10;
-            this.panelGenerales.Location = new System.Drawing.Point(275, 85);
+            this.panelGenerales.Location = new System.Drawing.Point(240, 85);
             this.panelGenerales.Name = "panelGenerales";
             this.panelGenerales.Size = new System.Drawing.Size(440, 215);
             this.panelGenerales.TabIndex = 4;
@@ -143,7 +129,7 @@
             // btnGenerales
             // 
             this.btnGenerales.Image = null;
-            this.btnGenerales.Location = new System.Drawing.Point(262, 40);
+            this.btnGenerales.Location = new System.Drawing.Point(245, 40);
             this.btnGenerales.Name = "btnGenerales";
             this.btnGenerales.Size = new System.Drawing.Size(117, 36);
             this.btnGenerales.TabIndex = 6;
@@ -232,7 +218,7 @@
             this.panelFechas.HorizontalScrollbarBarColor = true;
             this.panelFechas.HorizontalScrollbarHighlightOnWheel = false;
             this.panelFechas.HorizontalScrollbarSize = 10;
-            this.panelFechas.Location = new System.Drawing.Point(275, 85);
+            this.panelFechas.Location = new System.Drawing.Point(240, 85);
             this.panelFechas.Name = "panelFechas";
             this.panelFechas.Size = new System.Drawing.Size(440, 215);
             this.panelFechas.TabIndex = 6;
@@ -240,76 +226,17 @@
             this.panelFechas.VerticalScrollbarHighlightOnWheel = false;
             this.panelFechas.VerticalScrollbarSize = 10;
             // 
-            // panelEmpleados
+            // btnFechas
             // 
-            this.panelEmpleados.Controls.Add(this.materialLabel2);
-            this.panelEmpleados.HorizontalScrollbarBarColor = true;
-            this.panelEmpleados.HorizontalScrollbarHighlightOnWheel = false;
-            this.panelEmpleados.HorizontalScrollbarSize = 10;
-            this.panelEmpleados.Location = new System.Drawing.Point(275, 85);
-            this.panelEmpleados.Name = "panelEmpleados";
-            this.panelEmpleados.Size = new System.Drawing.Size(440, 215);
-            this.panelEmpleados.TabIndex = 7;
-            this.panelEmpleados.VerticalScrollbarBarColor = true;
-            this.panelEmpleados.VerticalScrollbarHighlightOnWheel = false;
-            this.panelEmpleados.VerticalScrollbarSize = 10;
-            // 
-            // materialLabel2
-            // 
-            this.materialLabel2.AutoSize = true;
-            this.materialLabel2.Depth = 0;
-            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel2.Location = new System.Drawing.Point(56, 48);
-            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(108, 19);
-            this.materialLabel2.TabIndex = 2;
-            this.materialLabel2.Text = "materialLabel2";
-            // 
-            // dtDesde
-            // 
-            this.dtDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtDesde.Location = new System.Drawing.Point(45, 28);
-            this.dtDesde.MinimumSize = new System.Drawing.Size(0, 29);
-            this.dtDesde.Name = "dtDesde";
-            this.dtDesde.Size = new System.Drawing.Size(119, 29);
-            this.dtDesde.TabIndex = 2;
-            // 
-            // materialLabel1
-            // 
-            this.materialLabel1.AutoSize = true;
-            this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(41, 0);
-            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(55, 19);
-            this.materialLabel1.TabIndex = 3;
-            this.materialLabel1.Text = "Desde:";
-            // 
-            // materialLabel3
-            // 
-            this.materialLabel3.AutoSize = true;
-            this.materialLabel3.Depth = 0;
-            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel3.Location = new System.Drawing.Point(241, 0);
-            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(53, 19);
-            this.materialLabel3.TabIndex = 4;
-            this.materialLabel3.Text = "Hasta:";
-            // 
-            // dtHasta
-            // 
-            this.dtHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtHasta.Location = new System.Drawing.Point(245, 28);
-            this.dtHasta.MinimumSize = new System.Drawing.Size(0, 29);
-            this.dtHasta.Name = "dtHasta";
-            this.dtHasta.Size = new System.Drawing.Size(119, 29);
-            this.dtHasta.TabIndex = 5;
+            this.btnFechas.Image = null;
+            this.btnFechas.Location = new System.Drawing.Point(245, 94);
+            this.btnFechas.Name = "btnFechas";
+            this.btnFechas.Size = new System.Drawing.Size(117, 36);
+            this.btnFechas.TabIndex = 8;
+            this.btnFechas.Text = "Generar reporte";
+            this.btnFechas.UseSelectable = true;
+            this.btnFechas.UseVisualStyleBackColor = true;
+            this.btnFechas.Click += new System.EventHandler(this.btnFechas_Click);
             // 
             // rbFVentas
             // 
@@ -345,16 +272,76 @@
             this.rbFCompras.Text = "Compras";
             this.rbFCompras.UseVisualStyleBackColor = true;
             // 
-            // btnFechas
+            // dtHasta
             // 
-            this.btnFechas.Image = null;
-            this.btnFechas.Location = new System.Drawing.Point(245, 94);
-            this.btnFechas.Name = "btnFechas";
-            this.btnFechas.Size = new System.Drawing.Size(117, 36);
-            this.btnFechas.TabIndex = 8;
-            this.btnFechas.Text = "Generar reporte";
-            this.btnFechas.UseSelectable = true;
-            this.btnFechas.UseVisualStyleBackColor = true;
+            this.dtHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtHasta.Location = new System.Drawing.Point(245, 28);
+            this.dtHasta.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dtHasta.Name = "dtHasta";
+            this.dtHasta.Size = new System.Drawing.Size(119, 29);
+            this.dtHasta.TabIndex = 5;
+            // 
+            // materialLabel3
+            // 
+            this.materialLabel3.AutoSize = true;
+            this.materialLabel3.Depth = 0;
+            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel3.Location = new System.Drawing.Point(241, 0);
+            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel3.Name = "materialLabel3";
+            this.materialLabel3.Size = new System.Drawing.Size(53, 19);
+            this.materialLabel3.TabIndex = 4;
+            this.materialLabel3.Text = "Hasta:";
+            // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel1.Location = new System.Drawing.Point(41, 0);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(55, 19);
+            this.materialLabel1.TabIndex = 3;
+            this.materialLabel1.Text = "Desde:";
+            // 
+            // dtDesde
+            // 
+            this.dtDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtDesde.Location = new System.Drawing.Point(45, 28);
+            this.dtDesde.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dtDesde.Name = "dtDesde";
+            this.dtDesde.Size = new System.Drawing.Size(119, 29);
+            this.dtDesde.TabIndex = 2;
+            // 
+            // panelEmpleados
+            // 
+            this.panelEmpleados.Controls.Add(this.materialLabel2);
+            this.panelEmpleados.HorizontalScrollbarBarColor = true;
+            this.panelEmpleados.HorizontalScrollbarHighlightOnWheel = false;
+            this.panelEmpleados.HorizontalScrollbarSize = 10;
+            this.panelEmpleados.Location = new System.Drawing.Point(240, 85);
+            this.panelEmpleados.Name = "panelEmpleados";
+            this.panelEmpleados.Size = new System.Drawing.Size(440, 215);
+            this.panelEmpleados.TabIndex = 7;
+            this.panelEmpleados.VerticalScrollbarBarColor = true;
+            this.panelEmpleados.VerticalScrollbarHighlightOnWheel = false;
+            this.panelEmpleados.VerticalScrollbarSize = 10;
+            // 
+            // materialLabel2
+            // 
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel2.Location = new System.Drawing.Point(56, 48);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(108, 19);
+            this.materialLabel2.TabIndex = 2;
+            this.materialLabel2.Text = "materialLabel2";
             // 
             // materialLabel4
             // 
@@ -373,12 +360,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 400);
+            this.ClientSize = new System.Drawing.Size(719, 400);
             this.Controls.Add(this.materialLabel4);
             this.Controls.Add(this.rbReportesEmpleados);
             this.Controls.Add(this.rbReportesFechas);
             this.Controls.Add(this.rbReportesGenrales);
-            this.Controls.Add(this.btnReporte);
             this.Controls.Add(this.panelFechas);
             this.Controls.Add(this.panelGenerales);
             this.Controls.Add(this.panelEmpleados);
@@ -401,8 +387,6 @@
         }
 
         #endregion
-
-        private MetroFramework.Controls.MetroTextBox.MetroTextButton btnReporte;
         private MaterialSkin.Controls.MaterialRadioButton rbReportesGenrales;
         private MaterialSkin.Controls.MaterialRadioButton rbReportesFechas;
         private MaterialSkin.Controls.MaterialRadioButton rbReportesEmpleados;
