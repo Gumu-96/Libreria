@@ -55,7 +55,42 @@ namespace Libreria
             foreach (char letra in encabezados)
                 separador += "-";
 
-            write.WriteLine("\t\t Reporte de {0} desde {1} hasta {2}", opcion, desde.ToShortDateString(), hasta.ToShortDateString());
+            write.WriteLine("\t Reporte de {0} desde {1} hasta {2}", opcion, desde.ToShortDateString(), hasta.ToShortDateString());
+            write.WriteLine();
+            write.WriteLine("Reporte generado: {0} - {1}", DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString());
+            write.WriteLine();
+
+            write.WriteLine(separador);
+            write.WriteLine(encabezados);
+            write.WriteLine(separador);
+            
+            foreach (string[] fila in todos)
+            {
+                DateTime fechaAccion = DateTime.Parse(fila[fila.Length - 1]);
+                if (desde == hasta)
+                    if (fechaAccion == desde)
+                        write.WriteLine(String.Format(formato, fila));
+                else
+                    if ((fechaAccion > desde && fechaAccion < hasta) || (fechaAccion == desde && fechaAccion < hasta) || (fechaAccion > desde && fechaAccion == hasta))
+                        write.WriteLine(String.Format(formato, fila));
+            }
+            write.WriteLine(separador);
+
+            write.Close();
+            Process.Start(rutaReporte);
+        }
+
+        public void GenerarReporte(DateTime desde, DateTime hasta, string IdEmpleado, string[] columnas, string formato, string opcion, Datos tipo)
+        {
+            StreamWriter write = new StreamWriter(rutaReporte);
+            List<string[]> todos = tipo.LeerArchivo();
+            string separador = "";
+            string encabezados = String.Format(formato, columnas);
+
+            foreach (char letra in encabezados)
+                separador += "-";
+
+            write.WriteLine("\t Reporte de {0} desde {1} hasta {2}", opcion, desde.ToShortDateString(), hasta.ToShortDateString());
             write.WriteLine();
             write.WriteLine("Reporte generado: {0} - {1}", DateTime.Now.ToLongDateString(), DateTime.Now.ToLongTimeString());
             write.WriteLine();
@@ -66,9 +101,16 @@ namespace Libreria
 
             foreach (string[] fila in todos)
             {
-                DateTime fecha = DateTime.Parse(fila[fila.Length - 1]);
-                if ((fecha > desde && fecha < hasta) || fecha == desde || fecha == hasta || (fecha == desde && fecha == hasta))
-                    write.WriteLine(String.Format(formato, fila));
+                DateTime fechaAccion = DateTime.Parse(fila[fila.Length - 1]);
+                if (fila[fila.Length - 2] == IdEmpleado)
+                {
+                    if (desde == hasta)
+                        if (fechaAccion == desde)
+                            write.WriteLine(String.Format(formato, fila));
+                    else
+                        if ((fechaAccion > desde && fechaAccion < hasta) || (fechaAccion == desde && fechaAccion < hasta) || (fechaAccion > desde && fechaAccion == hasta))
+                            write.WriteLine(String.Format(formato, fila));
+                }
             }
             write.WriteLine(separador);
 
@@ -97,8 +139,8 @@ namespace Libreria
 
             foreach (string[] fila in todos)
             {
-                //if (fecha >= desde && fecha <= hasta)
-                //    write.WriteLine(String.Format(formato, fila));
+                if (fila[fila.Length - 2] == IdEmpleado)
+                    write.WriteLine(String.Format(formato, fila));
             }
             write.WriteLine(separador);
 

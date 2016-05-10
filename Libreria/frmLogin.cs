@@ -45,7 +45,7 @@ namespace Libreria
                     Usuarios usuario = new Usuarios();
                     usuario.Usuario = item[0];
                     usuario.Contrasena = item[1];
-                    usuario.Tipo = item[2];
+                    usuario.Tipo = bool.Parse(item[2]);
                     usuarios.Add(usuario);
                 }
 

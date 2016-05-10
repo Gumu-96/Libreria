@@ -15,7 +15,7 @@ namespace Libreria
     public partial class frmMenu : MaterialForm
     {
         Usuarios usuarioActivo;
-        string[] empleado;
+        public string[] empleado;
 
         public frmMenu(Usuarios user)
         {
@@ -28,7 +28,7 @@ namespace Libreria
 
         private void btnMantEmp_Click(object sender, EventArgs e)
         {
-            frmMantEmpleados mant = new frmMantEmpleados();
+            frmMantEmpleados mant = new frmMantEmpleados(usuarioActivo);
             mant.Show();
             Hide();
         }
@@ -43,7 +43,8 @@ namespace Libreria
         private void frmMenu_Load(object sender, EventArgs e)
         {
             lblUsuario.Text = "Usuario: " + usuarioActivo.Usuario;
-            if (usuarioActivo.Tipo == "Empleado")
+            lblFechaHora.Text = DateTime.Now.ToLongDateString() + " - " + DateTime.Now.ToLongTimeString();
+            if (!usuarioActivo.Tipo)
             {
                 Text = "Menú Empleado";
                 btnMantEmp.Visible = false;
@@ -81,9 +82,22 @@ namespace Libreria
 
         private void btnReportes_Click(object sender, EventArgs e)
         {
-            frmReportes reportes = new frmReportes(usuarioActivo);
-            reportes.Show();
+            if (usuarioActivo.Tipo)
+            {
+                frmReportes reportes = new frmReportes(usuarioActivo);
+                reportes.Show();
+            }
+            else
+            {
+                frmReportesEmpleado reportesEmp = new frmReportesEmpleado(usuarioActivo);
+                reportesEmp.Show();
+            }
             Hide();
+        }
+
+        private void tmrFechaHora_Tick(object sender, EventArgs e)
+        {
+            lblFechaHora.Text = DateTime.Now.ToLongDateString() + " - " + DateTime.Now.ToLongTimeString();
         }
     }
 }

@@ -34,6 +34,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVentas));
             this.btnRemover = new MaterialSkin.Controls.MaterialFlatButton();
             this.txtCant = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.lblTotal = new MaterialSkin.Controls.MaterialLabel();
@@ -111,7 +112,7 @@
             this.lblTotal.Depth = 0;
             this.lblTotal.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblTotal.Location = new System.Drawing.Point(920, 400);
+            this.lblTotal.Location = new System.Drawing.Point(890, 400);
             this.lblTotal.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(17, 19);
@@ -252,7 +253,7 @@
             // 
             this.colNombre.HeaderText = "Producto";
             this.colNombre.Name = "colNombre";
-            this.colNombre.Width = 165;
+            this.colNombre.Width = 166;
             // 
             // unitario
             // 
@@ -464,18 +465,18 @@
             this.materialLabel3.Depth = 0;
             this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel3.Location = new System.Drawing.Point(811, 400);
+            this.materialLabel3.Location = new System.Drawing.Point(785, 400);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(113, 19);
+            this.materialLabel3.Size = new System.Drawing.Size(109, 19);
             this.materialLabel3.TabIndex = 56;
-            this.materialLabel3.Text = "Total a pagar: $";
+            this.materialLabel3.Text = "Total a pagar $";
             // 
             // txtPago
             // 
             this.txtPago.Depth = 0;
             this.txtPago.Hint = "0.00";
-            this.txtPago.Location = new System.Drawing.Point(862, 450);
+            this.txtPago.Location = new System.Drawing.Point(890, 425);
             this.txtPago.MaxLength = 6;
             this.txtPago.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtPago.Name = "txtPago";
@@ -495,7 +496,7 @@
             this.materialLabel5.Depth = 0;
             this.materialLabel5.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel5.Location = new System.Drawing.Point(813, 450);
+            this.materialLabel5.Location = new System.Drawing.Point(841, 425);
             this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel5.Name = "materialLabel5";
             this.materialLabel5.Size = new System.Drawing.Size(43, 19);
@@ -508,7 +509,7 @@
             this.materialLabel6.Depth = 0;
             this.materialLabel6.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel6.Location = new System.Drawing.Point(795, 475);
+            this.materialLabel6.Location = new System.Drawing.Point(823, 450);
             this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel6.Name = "materialLabel6";
             this.materialLabel6.Size = new System.Drawing.Size(61, 19);
@@ -521,7 +522,7 @@
             this.lblCambio.Depth = 0;
             this.lblCambio.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblCambio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblCambio.Location = new System.Drawing.Point(862, 475);
+            this.lblCambio.Location = new System.Drawing.Point(890, 450);
             this.lblCambio.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblCambio.Name = "lblCambio";
             this.lblCambio.Size = new System.Drawing.Size(17, 19);
@@ -555,6 +556,7 @@
             this.Controls.Add(this.cboBuscar);
             this.Controls.Add(this.dgvVentas);
             this.Controls.Add(this.dgvProd);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmVentas";
             this.Sizable = false;
@@ -594,14 +596,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn detalles;
         private MaterialSkin.Controls.MaterialLabel lblProdSeleccionado;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtPago;
+        private MaterialSkin.Controls.MaterialLabel materialLabel5;
+        private MaterialSkin.Controls.MaterialLabel materialLabel6;
+        private MaterialSkin.Controls.MaterialLabel lblCambio;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn unitario;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn pTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdProd;
-        private MaterialSkin.Controls.MaterialSingleLineTextField txtPago;
-        private MaterialSkin.Controls.MaterialLabel materialLabel5;
-        private MaterialSkin.Controls.MaterialLabel materialLabel6;
-        private MaterialSkin.Controls.MaterialLabel lblCambio;
     }
 }

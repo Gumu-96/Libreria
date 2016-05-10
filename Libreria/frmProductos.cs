@@ -17,6 +17,7 @@ namespace Libreria
     public partial class frmProductos : MaterialForm
     {
         Usuarios usuarioActivo;
+        MetroColorStyle MetroColor;
         int add = 0;
         Datos productos = new Datos("Productos.txt");
         Datos compras = new Datos("Compras.txt");
@@ -26,6 +27,7 @@ namespace Libreria
         public frmProductos(Usuarios user)
         {
             FormColor color = new FormColor(this);
+            MetroColor = color.MetroColor;
             usuarioActivo = user;
 
             InitializeComponent();
@@ -96,6 +98,7 @@ namespace Libreria
         private void frmProductos_Load(object sender, EventArgs e)
         {
             lblUsuario.Text = "Usuario: " + usuarioActivo.Usuario;
+            dgvProd.Style = MetroColor;
             dgvProd.Size = new Size(700, 475);
             dgvProd.BorderStyle = BorderStyle.Fixed3D;
             fillDataGrid();

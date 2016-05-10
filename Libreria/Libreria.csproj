@@ -75,6 +75,12 @@
     <Compile Include="frmMantEmpleados.Designer.cs">
       <DependentUpon>frmMantEmpleados.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMantUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMantUsuarios.Designer.cs">
+      <DependentUpon>frmMantUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +105,12 @@
     <Compile Include="frmReportes.Designer.cs">
       <DependentUpon>frmReportes.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReportesEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportesEmpleado.Designer.cs">
+      <DependentUpon>frmReportesEmpleado.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmVentas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +127,9 @@
     <EmbeddedResource Include="frmMantEmpleados.resx">
       <DependentUpon>frmMantEmpleados.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmMantUsuarios.resx">
+      <DependentUpon>frmMantUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -126,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmReportes.resx">
       <DependentUpon>frmReportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReportesEmpleado.resx">
+      <DependentUpon>frmReportesEmpleado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVentas.resx">
       <DependentUpon>frmVentas.cs</DependentUpon>
@@ -186,6 +204,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\colorD.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Style.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

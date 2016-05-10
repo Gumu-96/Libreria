@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenuColor));
             this.btnColor4 = new MetroFramework.Controls.MetroButton();
             this.btnColor3 = new MetroFramework.Controls.MetroButton();
             this.btnColor2 = new MetroFramework.Controls.MetroButton();
@@ -113,6 +114,7 @@
             this.Controls.Add(this.btnColor3);
             this.Controls.Add(this.btnColor2);
             this.Controls.Add(this.btnColor1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmMenuColor";
             this.Sizable = false;

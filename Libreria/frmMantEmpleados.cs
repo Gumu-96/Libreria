@@ -18,12 +18,17 @@ namespace Libreria
     public partial class frmMantEmpleados : MaterialForm
     {
         int add = 0;
+        Usuarios usuarioActivo;
         MetroColorStyle MetroColor;
         Datos datos = new Datos("Empleados.txt");
         Datos usuario = new Datos("Usuarios.txt");
 
-        public frmMantEmpleados()
+        public frmMantEmpleados(Usuarios user)
         {
+            usuarioActivo = user;
+            FormColor color = new FormColor(this);
+            MetroColor = color.MetroColor;
+
             InitializeComponent();
         }
 
@@ -45,13 +50,11 @@ namespace Libreria
 
         private void CamposUsuario(bool val)
         {
-            lbl2.Visible = val;
-            txtUsuario.Visible = val;
             txtUsuario.Text = "Usuario";
-            txtContrasena.Visible = val;
             txtContrasena.Clear();
-            chkAdmin.Visible = val;
             chkAdmin.Checked = false;
+            panelUsuario.Visible = val;
+            btnMantUsuario.Visible = !val;
         }
 
         private void Limpiar()
@@ -95,8 +98,7 @@ namespace Libreria
 
         private void frmMantEmpleados_Load(object sender, EventArgs e)
         {
-            FormColor color = new FormColor(this);
-            MetroColor = color.MetroColor;
+            lblUsuario.Text = "Usuario: " + usuarioActivo.Usuario;
             FillListView();
             dgvEmp.Style = MetroColor;
             dgvEmp.BorderStyle = BorderStyle.Fixed3D;
@@ -129,6 +131,11 @@ namespace Libreria
                 txtEmail.Text = dgvEmp.CurrentRow.Cells[3].Value.ToString();
                 txtDui.Text = dgvEmp.CurrentRow.Cells[4].Value.ToString();
                 dtFecha.Value = DateTime.Parse(dgvEmp.CurrentRow.Cells[5].Value.ToString());
+
+                if (txtIdEmp.Text == usuarioActivo.Usuario)
+                    btnEliminar.Enabled = false;
+                else
+                    btnEliminar.Enabled = true;
             }
         }
 
@@ -155,10 +162,10 @@ namespace Libreria
                         txtIdEmp.Text = GenerarId();
                         txtUsuario.Text = txtIdEmp.Text;
                         string[] empleado = {  txtIdEmp.Text, txtNombres.Text, txtApellidos.Text, txtEmail.Text, txtDui.Text, dtFecha.Value.ToShortDateString() };
-                        string isAdmin = "Empleado";
+                        bool isAdmin = false;
                         if (chkAdmin.Checked)
-                            isAdmin = "Admin";
-                        string[] user = { txtUsuario.Text, txtContrasena.Text, isAdmin };
+                            isAdmin = true;
+                        string[] user = { txtUsuario.Text, txtContrasena.Text, isAdmin.ToString() };
                         datos.Agregar(datos.VectorToLine(empleado));
                         usuario.Agregar(usuario.VectorToLine(user));
                     }
@@ -179,7 +186,10 @@ namespace Libreria
         private void btnEditar_Click(object sender, EventArgs e)
         {
             if (dgvEmp.RowCount != 0)
+            {
                 botonesAccion(true);
+                btnMantUsuario.Visible = false;
+            }
             add = 0;
         }
 
@@ -227,6 +237,13 @@ namespace Libreria
                     e.Handled = false;
                 else
                     e.Handled = true;
+        }
+
+        private void btnMantUsuario_Click(object sender, EventArgs e)
+        {
+            frmMantUsuarios mantUsuarios = new frmMantUsuarios(usuarioActivo);
+            mantUsuarios.Show();
+            Hide();
         }
     }
 }

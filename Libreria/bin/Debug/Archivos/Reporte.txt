@@ -1,12 +1,9 @@
-			 Reporte de todos los empleados
+	 Reporte de Ventas desde 10 May. 2016 hasta 10 May. 2016
 
-Reporte generado: lunes, 9 de mayo de 2016 - 8:26:05 PM
+Reporte generado: martes, 10 de mayo de 2016 - 3:56:37 PM
 
-------------------------------------------------------------------------------------------------------------
-Código    Nombres               Apellidos             Email                 DUI          Fecha de nacimiento
-------------------------------------------------------------------------------------------------------------
-ES0002    Erick                 Sandoval              asdfghj               qweqwe       28 Dic. 1998
-FM0001    Fernando              Magaña                zxczxc                wertyui      29 Abr. 2000
-AM0003    Augusto               Meza                  qwertyu               ytrewq       27 Abr. 1996
-GM0004    Gustavo               Müller                mail@mail.com         12345678-9   11 Sept. 1996
-------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------
+Código    Cliente               Total venta   Empleado  Fecha de Venta
+----------------------------------------------------------------------
+v000020   ...Anonimo...         8.05          AM0003    10 May. 2016
+----------------------------------------------------------------------
